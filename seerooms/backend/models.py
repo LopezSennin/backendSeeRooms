@@ -2,35 +2,34 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    id = models.IntegerField(primarykey = True)
-    fullName = models.CharField(null = False, blank = False)
-    email = models.EmailField(null = False, blank = False)
-    phoneNumber = models.IntegerField(null = False, blank = False)
-    password = models.CharField(null = False, blank = False)
+    id = models.IntegerField(primary_key = True)
+    fullName = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    phoneNumber = models.IntegerField()
+    password = models.CharField(max_length=200)
 
 class Place(models.Model):
-    id = models.UUIDField(null = False, blank = False)
+    id = models.UUIDField(primary_key = True)
     owner = models.ManyToManyField(User)
-    price = models.IntegerField(null = False, blank = False)
+    price = models.IntegerField()
 
 class Characteristics(models.Model):
     id = models.ManyToManyField(Place)
-    Characteristic = models.CharField(null = False, blank = False)
+    Characteristic = models.CharField(max_length=200)
 
 class Photo(models.Model):
     place = models.ManyToManyField(Place)
-    photo = models.URLField(null = False, blank = False)
+    photo = models.URLField()
 
 class Ubication(models.Model):
     place = models.ManyToManyField(Place)
-    address = models.CharField(null = False, blank = False)
-    neighborhood = models.CharField(null = False, blank = False)
-    city = models.CharField(null = False, blank = False)
-    state = models.CharField(null = False, blank = False)
+    address = models.CharField(max_length=200)
+    neighborhood = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
 
 class Rent(models.Model):
-    id = models.UUIDField()
-    owner = models.ManyToManyField(User)
+    id = models.UUIDField(primary_key = True)
     renter = models.ManyToManyField(User)
     place = models.ManyToManyField(Place)
-    date = models.DateField(null = False, blank = False)
+    date = models.DateField()

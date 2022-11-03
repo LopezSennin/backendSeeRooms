@@ -31,4 +31,4 @@ class UbicationSerializer(serializers.HyperlinkedModelSerializer):
 class RentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Rent
-        fields = ['url', 'id', 'owner', 'renter', 'place', 'date']
+        fields = ['url', 'id', 'renter', 'place', 'date']

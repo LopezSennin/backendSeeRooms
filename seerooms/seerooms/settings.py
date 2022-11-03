@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework',
+    'backend.apps.BackendConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,19 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost',
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:4200',
+    'http://127.0.0.1',
+    'http://127.0.0.1:3001',
+    'http://127.0.0.1:4200',
+    'http://127.0.0.1:3000',
+)
 
 ROOT_URLCONF = "seerooms.urls"
 
