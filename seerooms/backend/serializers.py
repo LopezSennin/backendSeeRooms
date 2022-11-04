@@ -7,7 +7,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ['url', 'fullName', 'email', 'phoneNumber', 'password']
 
-
 class PlaceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Place
@@ -31,4 +30,4 @@ class UbicationSerializer(serializers.HyperlinkedModelSerializer):
 class RentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Rent
-        fields = ['url', 'id', 'owner', 'renter', 'place', 'date']
+        fields = ['url', 'id', 'renter', 'place', 'date']

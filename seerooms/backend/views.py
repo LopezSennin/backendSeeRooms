@@ -1,9 +1,8 @@
-from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
-from .models import *
+#from .models import *
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -11,7 +10,6 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class PlaceViewSet(viewsets.ModelViewSet):
     """
@@ -19,7 +17,6 @@ class PlaceViewSet(viewsets.ModelViewSet):
     """
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class CharacteristicsViewSet(viewsets.ModelViewSet):
     """
@@ -27,7 +24,6 @@ class CharacteristicsViewSet(viewsets.ModelViewSet):
     """
     queryset = Characteristics.objects.all()
     serializer_class = CharacteristicsSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class PhotoViewSet(viewsets.ModelViewSet):
     """
@@ -35,7 +31,6 @@ class PhotoViewSet(viewsets.ModelViewSet):
     """
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class UbicationViewSet(viewsets.ModelViewSet):
     """
@@ -43,7 +38,6 @@ class UbicationViewSet(viewsets.ModelViewSet):
     """
     queryset = Ubication.objects.all()
     serializer_class = UbicationSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class RentViewSet(viewsets.ModelViewSet):
     """
@@ -51,4 +45,3 @@ class RentViewSet(viewsets.ModelViewSet):
     """
     queryset = Rent.objects.all()
     serializer_class = RentSerializer
-    permission_classes = [permissions.IsAuthenticated]
