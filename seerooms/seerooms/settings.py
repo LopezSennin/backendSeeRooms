@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
+    "bootstrap4",
     'backend.apps.BackendConfig',
     'corsheaders',
 ]
@@ -64,6 +65,10 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:3000',
 )
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 ROOT_URLCONF = "seerooms.urls"
 
 TEMPLATES = [
