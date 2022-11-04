@@ -1,3 +1,5 @@
+from email.policy import default
+import uuid
 from django.db import models
 
 # Create your models here.
@@ -9,7 +11,7 @@ class User(models.Model):
     password = models.CharField(max_length=200)
 
 class Place(models.Model):
-    id = models.UUIDField(primary_key = True)
+    id = models.UUIDField(default = uuid.uuid4, unique = True, editable = False, primary_key = True)
     owner = models.ManyToManyField(User)
     price = models.IntegerField()
 
@@ -29,7 +31,7 @@ class Ubication(models.Model):
     state = models.CharField(max_length=200)
 
 class Rent(models.Model):
-    id = models.UUIDField(primary_key = True)
+    id = models.UUIDField(default = uuid.uuid4, unique = True, editable = False, primary_key = True)
     renter = models.ManyToManyField(User)
     place = models.ManyToManyField(Place)
     date = models.DateField()
