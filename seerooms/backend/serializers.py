@@ -5,22 +5,33 @@ from .models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'id', 'fullName', 'email', 'phoneNumber', 'password']
+        fields = ['url', 'username', 'email', 'groups']
+
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Group
+        fields = ['url', 'name']
+
+class UsersappSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Usersapp
+        fields = ['url', 'id_user_app', 'fullName', 'email', 'phoneNumber', 'password']
 
 class PlaceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Place
-        fields = ['url', 'id', 'owner', 'price']
+        fields = ['url', 'id_place', 'owner', 'price']
 
 class CharacteristicsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Characteristics
-        fields = ['url', 'id', 'Characteristic']
+        fields = ['url', 'place', 'Characteristic']
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Photo
-        fields = ['url', 'id', 'place', 'photo']
+        fields = ['url', 'place', 'photo']
 
 class UbicationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -30,4 +41,4 @@ class UbicationSerializer(serializers.HyperlinkedModelSerializer):
 class RentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Rent
-        fields = ['url', 'id', 'renter', 'place', 'date']
+        fields = ['url', 'id_rent', 'renter', 'place', 'date']

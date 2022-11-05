@@ -20,6 +20,7 @@ from backend import views
 
 router = routers.DefaultRouter()
 router.register(r'user', views.UserViewSet)
+router.register(r'usersapp', views.UsersappViewSet)
 router.register(r'places', views.PlaceViewSet)
 router.register(r'Characteristics', views.CharacteristicsViewSet)
 router.register(r'Photo', views.PhotoViewSet)
@@ -34,4 +35,3 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-
